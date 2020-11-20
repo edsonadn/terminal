@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
+#include <conio.h>
 
 void dibujo(int x,int y){
     HANDLE hCon;
@@ -10,9 +11,31 @@ void dibujo(int x,int y){
     SetConsoleCursorPosition(hCon,dwPos);
     printf("*");
 }
-
 int main(){
-    dibujo(4,2);
+    int x=10;
+    int y=10;
+    bool gameOver = false;
+    while(!gameOver){
+        if (kbhit()){
+            char key = getch();
+            if (key == 'd'){
+                x++;
+            }
+            if (key == 'a'){
+                x--;
+            }
+            if (key == 's'){
+                y++;
+            }
+            if (key == 'w'){
+                y--;
+            }
+            if(key == 'e'){
+                gameOver=true;
+            } 
+            dibujo(x,y);
+        }
+    }
     return 0;
 }
 
