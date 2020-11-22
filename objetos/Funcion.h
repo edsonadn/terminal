@@ -22,18 +22,26 @@ void ocultarCursor()
 }
 void dibujarMargen()
 {
-    for (int i = 5; i < 90; i++)
-    {
-        dibujar(i, 5);
-        printf("%c", 220);
-        dibujar(i, 30);
-        printf("%c", 220);
-    }
-    for (int i = 5; i < 30; i++)
+    for (int i = 5; i <= 30; i++)
     {
         dibujar(5, i);
-        printf("%c", 220);
+        printf("%c", 186);
         dibujar(90, i);
-        printf("%c", 220);
+        printf("%c", 186);
     }
+    for (int i = 5; i <= 90; i++)
+    {
+        dibujar(i, 5);
+        printf("%c", 205);
+        dibujar(i, 30);
+        printf("%c", 205);
+    }
+    dibujar(5, 5);
+    printf("%c", 201);
+    dibujar(5, 30);
+    printf("%c", 200);
+    dibujar(90, 5);
+    printf("%c", 187);
+    dibujar(90, 30);
+    printf("%c", 188);
 }

@@ -55,7 +55,7 @@ void Nave::mover()
         {
             x--;
         }
-        pintar();
         dibujarEstadisticas();
+        pintar();
     }
 }
