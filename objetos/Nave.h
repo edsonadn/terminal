@@ -1,61 +1,20 @@
-#include <stdio.h>
-#include "Funcion.h"
+#ifndef _NAVE_H_
+#define _NAVE_H_
 
 class Nave
 {
 private:
-    int x, y;
+    int x, y,corazones;
 
 public:
-    Nave(int _x, int _y);
+    Nave(int _x, int _y,int _corazones);
     ~Nave();
     void pintar();
     void borrar();
     void mover();
     void dibujarEstadisticas();
+    void pintarCorazones();
 };
-Nave::Nave(int _x, int _y)
-{
-    x = (_x);
-    y = (_y);
-}
-Nave::~Nave()
-{
-}
-void Nave::pintar()
-{
-    dibujar(x, y);
-    printf("  %c", 94);
-    dibujar(x, y + 1);
-    printf("%c %c %C", 186, 219, 186);
-}
-void Nave::borrar()
-{
-    dibujar(x, y);
-    printf("     ");
-    dibujar(x, y + 1);
-    printf("     ");
-}
-void Nave::dibujarEstadisticas()
-{
-    dibujar(10, 3);
-    printf("valorX:%i", x);
-}
-void Nave::mover()
-{
-    if (kbhit())
-    {
-        borrar();
-        char key = getch();
-        if ((key == 'd') && (x < 85))
-        {
-            x++;
-        }
-        if ((key == 'a') && (x > 6))
-        {
-            x--;
-        }
-        dibujarEstadisticas();
-        pintar();
-    }
-}
+
+#include "../imple/Nave.cpp"
+#endif
