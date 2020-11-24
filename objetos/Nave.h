@@ -14,6 +14,10 @@ public:
     void mover();
     void dibujarEstadisticas();
     void pintarCorazones();
+    void morir();
+    int dx();
+    int dy();
+    int cor();
 };
 
 #include "../imple/Nave.cpp"

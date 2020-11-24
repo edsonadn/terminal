@@ -44,6 +44,10 @@ void Nave::mover()
         {
             x--;
         }
+        if ((key == 'e'))
+        {
+            morir();
+        }
         dibujarEstadisticas();
         pintarCorazones();
         pintar();
@@ -58,4 +62,36 @@ void Nave::pintarCorazones(){
         dibujar(65+i,3);
         printf("%c",3);
     }
+}
+void Nave::morir(){
+    corazones--;
+    borrar();
+    dibujar(x,y);
+    printf(" *** ");
+    dibujar(x,y+1);
+    printf(" *** ");
+    Sleep(200);
+    borrar();
+    dibujar(x,y);
+    printf("* * *");
+    dibujar(x,y+1);
+    printf("* * *");
+    Sleep(200);
+    dibujar(x,y);
+    printf("*   *");
+    dibujar(x,y+1);
+    printf("*   *");
+    Sleep(200);
+    borrar();
+    pintar();
+    pintarCorazones();
+}
+int Nave::dx(){
+    return x;
+}
+int Nave::dy(){
+    return y;
+}
+int Nave::cor(){
+    return corazones;
 }

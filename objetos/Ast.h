@@ -11,6 +11,7 @@ public:
     void pintar();
     void borrar();
     void mover();
+    void colision(class Nave &nave);
 };
 
 #include "../imple/Ast.cpp"
