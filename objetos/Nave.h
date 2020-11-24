@@ -4,10 +4,10 @@
 class Nave
 {
 private:
-    int x, y,corazones;
+    int x, y, corazones, ve;
 
 public:
-    Nave(int _x, int _y,int _corazones);
+    Nave(int _x, int _y, int _corazones,int _ve);
     ~Nave();
     void pintar();
     void borrar();

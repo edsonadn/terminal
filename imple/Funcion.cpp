@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void dibujar(int x, int y)
 {

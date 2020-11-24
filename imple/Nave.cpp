@@ -1,11 +1,12 @@
 #include "../objetos/Nave.h"
 #include "../objetos/Funcion.h"
 
-Nave::Nave(int _x, int _y,int _corazones)
+Nave::Nave(int _x, int _y, int _corazones, int _ve)
 {
     x = (_x);
     y = (_y);
     corazones = (_corazones);
+    ve = (_ve);
 }
 Nave::~Nave()
 {
@@ -16,7 +17,7 @@ void Nave::pintar()
     dibujar(x, y);
     printf("  %c", 94);
     dibujar(x, y + 1);
-    printf("%c%c%c%c%c", 186,205, 219,205, 186);
+    printf("%c%c%c%c%c", 186, 205, 219, 205, 186);
 }
 void Nave::borrar()
 {
@@ -38,11 +39,11 @@ void Nave::mover()
         char key = getch();
         if ((key == 'd') && (x < 85))
         {
-            x++;
+            x = x + ve;
         }
         if ((key == 'a') && (x > 6))
         {
-            x--;
+            x = x - ve;
         }
         if ((key == 'e'))
         {
@@ -53,45 +54,51 @@ void Nave::mover()
         pintar();
     }
 }
-void Nave::pintarCorazones(){
-    dibujar(60,3);
+void Nave::pintarCorazones()
+{
+    dibujar(60, 3);
     printf("Vida");
-    dibujar(65,3);
+    dibujar(65, 3);
     printf("       ");
-    for(int i=0;i<corazones;i++ ){
-        dibujar(65+i,3);
-        printf("%c",3);
+    for (int i = 0; i < corazones; i++)
+    {
+        dibujar(65 + i, 3);
+        printf("%c", 3);
     }
 }
-void Nave::morir(){
+void Nave::morir()
+{
     corazones--;
     borrar();
-    dibujar(x,y);
+    dibujar(x, y);
     printf(" *** ");
-    dibujar(x,y+1);
+    dibujar(x, y + 1);
     printf(" *** ");
     Sleep(200);
     borrar();
-    dibujar(x,y);
+    dibujar(x, y);
     printf("* * *");
-    dibujar(x,y+1);
+    dibujar(x, y + 1);
     printf("* * *");
     Sleep(200);
-    dibujar(x,y);
+    dibujar(x, y);
     printf("*   *");
-    dibujar(x,y+1);
+    dibujar(x, y + 1);
     printf("*   *");
     Sleep(200);
     borrar();
     pintar();
     pintarCorazones();
 }
-int Nave::dx(){
+int Nave::dx()
+{
     return x;
 }
-int Nave::dy(){
+int Nave::dy()
+{
     return y;
 }
-int Nave::cor(){
+int Nave::cor()
+{
     return corazones;
 }

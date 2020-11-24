@@ -1,10 +1,12 @@
 #include "../objetos/Ast.h"
 #include "../objetos/Funcion.h"
 
-Ast::Ast(int _x, int _y)
+Ast::Ast(int _x, int _y,int _rango)
 {
+    rango=(_rango);
     x = (_x);
     y = (_y);
+    condicion=true;
 }
 Ast::~Ast()
 {
@@ -12,7 +14,7 @@ Ast::~Ast()
 void Ast::pintar()
 {
     dibujar(x, y);
-    printf("%c", 97);
+    printf("%c", 184);
 }
 void Ast::borrar()
 {
@@ -23,10 +25,28 @@ void Ast::mover()
 {
     borrar();
     y++;
+    if ((condicion==true) && x<(xi+rango)){
+        x++;
+        if(x==(xi+rango)||x>89)
+        {
+            rango = (rand() % 10 + 4);
+            condicion=false;
+        }
+    }
+    if ((condicion==false) && x>(xi-rango)){
+        x--;
+        if(x==(xi-rango)||x<7)
+        {
+            rango = (rand() % 10 + 4);
+            condicion=true;
+        }
+    }
     if (y > 29)
     {
-        x = rand() % 83 + 6;
+        x = (rand() % 80) + (6);
         y = 6;
+        xi = x;
+        rango = (rand() % 10 + 4);
     }
     pintar();
 }

@@ -5,8 +5,11 @@ class Ast
 {
 private:
     int x,y;
+    int xi;
+    bool condicion;
+    int rango;
 public:
-    Ast(int _x,int _y);
+    Ast(int _x,int _y,int _rango);
     ~Ast();
     void pintar();
     void borrar();
