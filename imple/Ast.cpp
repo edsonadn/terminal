@@ -1,12 +1,12 @@
 #include "../objetos/Ast.h"
 #include "../objetos/Funcion.h"
 
-Ast::Ast(int _x, int _y,int _rango)
+Ast::Ast(int _x, int _y, int _rango)
 {
-    rango=(_rango);
+    rango = (_rango);
     x = (_x);
     y = (_y);
-    condicion=true;
+    condicion = true;
 }
 Ast::~Ast()
 {
@@ -14,7 +14,7 @@ Ast::~Ast()
 void Ast::pintar()
 {
     dibujar(x, y);
-    printf("%c", 184);
+    printf("%c", figura);
 }
 void Ast::borrar()
 {
@@ -25,20 +25,24 @@ void Ast::mover()
 {
     borrar();
     y++;
-    if ((condicion==true) && x<(xi+rango)){
+    if ((condicion == true) && x < (xi + rango))
+    {
         x++;
-        if(x==(xi+rango)||x>89)
+        if (x == (xi + rango) || x > 89)
         {
             rango = (rand() % 10 + 4);
-            condicion=false;
+            condicion = false;
+            elegirFigura();
         }
     }
-    if ((condicion==false) && x>(xi-rango)){
+    if ((condicion == false) && x > (xi - rango))
+    {
         x--;
-        if(x==(xi-rango)||x<7)
+        if (x == (xi - rango) || x < 7)
         {
             rango = (rand() % 10 + 4);
-            condicion=true;
+            condicion = true;
+            elegirFigura();
         }
     }
     if (y > 29)
@@ -50,13 +54,44 @@ void Ast::mover()
     }
     pintar();
 }
-void Ast::colision( class Nave &nave)
+void Ast::colision(class Nave &nave)
 {
-    if ((x >= nave.dx()) && (x <= (nave.dx() + 5)) && (y>=nave.dy()))
-        {
-            nave.morir();
-            borrar();
-            x = rand() % 83 + 6;
-            y = 6;
-        }
+    if ((x >= nave.dx()) && (x <= (nave.dx() + 5)) && (y >= nave.dy()))
+    {
+        nave.morir();
+        borrar();
+        x = rand() % 83 + 6;
+        y = 6;
+    }
+}
+void Ast::elegirFigura()
+{
+    if (rango == 4)
+    {
+        figura = 205;
+    }
+    if (rango == 5)
+    {
+        figura = 186;
+    }
+    if (rango == 6)
+    {
+        figura = 203;
+    }
+    if (rango == 7)
+    {
+        figura = 202;
+    }
+    if (rango == 8)
+    {
+        figura = 185;
+    }
+    if (rango == 9)
+    {
+        figura = 204;
+    }
+    if (rango == 10)
+    {
+        figura = 206;
+    }
 }

@@ -8,6 +8,7 @@ private:
     int xi;
     bool condicion;
     int rango;
+    int figura;
 public:
     Ast(int _x,int _y,int _rango);
     ~Ast();
@@ -15,6 +16,7 @@ public:
     void borrar();
     void mover();
     void colision(class Nave &nave);
+    void elegirFigura();
 };
 
 #include "../imple/Ast.cpp"
